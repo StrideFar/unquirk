@@ -1,4 +1,4 @@
-# unquirk
+# unquirk v.1 beta
 unquirk troll text w options  
 hoping to help people with screen readers  
 or users who dont want to hurt their eyes on leet speak  
