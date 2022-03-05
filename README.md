@@ -3,6 +3,8 @@ unquirk troll text w options
 hoping to help people with screen readers  
 or users who dont want to hurt their eyes on leet speak  
 
+WARNING potential homestuck spoilers below.  New readers at your peril.  Click Code V > Download Zip on top right  
+
 [Docs sheet here](https://docs.google.com/spreadsheets/d/17Kc1QZ_B222C9vx-vtFUmAhUXr6jaRe1KyWP_QJaYKQ/edit?usp=sharing)
 Please reach out via discord (this may move to issues in github)
 
