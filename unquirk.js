@@ -29,8 +29,6 @@ module.exports = {
 		const eridanSearchRegex = /<span style="color: #6a006a">(?:\w{2,}): (.*?)<\/span>/ig;
 		const feferiSearchRegex = /<span style="color: #77003c">(?:\w{2,}): (.*?)<\/span>/ig;
 		
-		const scratchSearchRegex = /<span style="color: #ffffff">(.*?)<\/span>/ig;
-		
         let searchMatch;
 		
 		// loop over all homestuck pageString
@@ -61,23 +59,22 @@ module.exports = {
 					}
 				}
 				
-                // check if terezi speaks
-                if (archive.mspa.story[pageString].content.includes('#008282')) {
+                // check if sollux speaks
+                if (archive.mspa.story[pageString].content.includes('#a1a100')) {
 					// get whole page
 					const content = archive.mspa.story[pageString].content;
 					
-                    // store all of terezi's lines
-                    const tereziLines = [];
-                    while(searchMatch = tereziSearchRegex.exec(content)) tereziLines.push(searchMatch[1]);
+                    // store all of sollux's lines
+                    const solluxLines = [];
+                    while(searchMatch = solluxSearchRegex.exec(content)) solluxLines.push(searchMatch[1]);
 					
-					for (let j = 0;j < tereziLines.length; j++) {
+					for (let j = 0;j < solluxLines.length; j++) {
 						let newContent = archive.mspa.story[pageString].content;
 						
-						let thisText = tereziLines[j];
+						let thisText = solluxLines[j];
 						
-						let newText = thisText.replace(/4/g,"A");
-						newText = newText.replace(/1/g,"I");
-						newText = newText.replace(/3/g,"E");
+						let newText = thisText.replace(/ii/g,"i");
+						newText = newText.replace(/2/g,"s");
 						
 						archive.mspa.story[pageString].content = newContent.replace(thisText, newText);
 					}
@@ -104,42 +101,23 @@ module.exports = {
 					}
 				}
 				
-                // check if gamzee speaks
-                if (archive.mspa.story[pageString].content.includes('#2b0057')) {
+                // check if terezi speaks
+                if (archive.mspa.story[pageString].content.includes('#008282')) {
 					// get whole page
 					const content = archive.mspa.story[pageString].content;
 					
-                    // store all of gamzee's lines
-                    const gamzeeLines = [];
-                    while(searchMatch = gamzeeSearchRegex.exec(content)) gamzeeLines.push(searchMatch[1]);
+                    // store all of terezi's lines
+                    const tereziLines = [];
+                    while(searchMatch = tereziSearchRegex.exec(content)) tereziLines.push(searchMatch[1]);
 					
-					for (let j = 0;j < gamzeeLines.length; j++) {
+					for (let j = 0;j < tereziLines.length; j++) {
 						let newContent = archive.mspa.story[pageString].content;
 						
-						let thisText = gamzeeLines[j];
+						let thisText = tereziLines[j];
 						
-						let newText = thisText.toLowerCase();
-						
-						archive.mspa.story[pageString].content = newContent.replace(thisText, newText);
-					}
-				}
-				
-                // check if sollux speaks
-                if (archive.mspa.story[pageString].content.includes('#a1a100')) {
-					// get whole page
-					const content = archive.mspa.story[pageString].content;
-					
-                    // store all of sollux's lines
-                    const solluxLines = [];
-                    while(searchMatch = solluxSearchRegex.exec(content)) solluxLines.push(searchMatch[1]);
-					
-					for (let j = 0;j < solluxLines.length; j++) {
-						let newContent = archive.mspa.story[pageString].content;
-						
-						let thisText = solluxLines[j];
-						
-						let newText = thisText.replace(/ii/g,"i");
-						newText = newText.replace(/2/g,"s");
+						let newText = thisText.replace(/4/g,"A");
+						newText = newText.replace(/1/g,"I");
+						newText = newText.replace(/3/g,"E");
 						
 						archive.mspa.story[pageString].content = newContent.replace(thisText, newText);
 					}
@@ -196,12 +174,69 @@ module.exports = {
 					}
 				}
 				
+                // check if gamzee speaks
+                if (archive.mspa.story[pageString].content.includes('#2b0057')) {
+					// get whole page
+					const content = archive.mspa.story[pageString].content;
+					
+                    // store all of gamzee's lines
+                    const gamzeeLines = [];
+                    while(searchMatch = gamzeeSearchRegex.exec(content)) gamzeeLines.push(searchMatch[1]);
+					
+					for (let j = 0;j < gamzeeLines.length; j++) {
+						let newContent = archive.mspa.story[pageString].content;
+						
+						let thisText = gamzeeLines[j];
+						
+						let newText = thisText.toLowerCase();
+						
+						archive.mspa.story[pageString].content = newContent.replace(thisText, newText);
+					}
+				}
+				
+                // check if eridan speaks
+                if (archive.mspa.story[pageString].content.includes('#6a006a')) {
+					// get whole page
+					const content = archive.mspa.story[pageString].content;
+					
+                    // store all of eridan's lines
+                    const eridanLines = [];
+                    while(searchMatch = eridanSearchRegex.exec(content)) eridanLines.push(searchMatch[1]);
+					
+					for (let j = 0;j < eridanLines.length; j++) {
+						let newContent = archive.mspa.story[pageString].content;
+						
+						let thisText = eridanLines[j];
+						
+						let newText = thisText.replace(/ww/g,"w");
+						newText = newText.replace(/vv/g,"v"); 
+						
+						archive.mspa.story[pageString].content = newContent.replace(thisText, newText);
+					}
+				}
+				
+				// check if feferi speaks
+                if (archive.mspa.story[pageString].content.includes('#77003c')) {
+					// get whole page
+					const content = archive.mspa.story[pageString].content;
+					
+                    // store all of feferi's lines
+                    const feferiLines = [];
+                    while(searchMatch = feferiSearchRegex.exec(content)) feferiLines.push(searchMatch[1]);
+					
+					for (let j = 0;j < feferiLines.length; j++) {
+						let newContent = archive.mspa.story[pageString].content;
+						
+						let thisText = feferiLines[j];
+						
+						let newText = thisText.replace(/)(/g,"H");
+						
+						archive.mspa.story[pageString].content = newContent.replace(thisText, newText);
+					}
+				}
+				
 			}
 		}
-		
-		// then we need to get that line, go in and apply a switch of text colour to work out who says it
-		
-		// if its a troll, we regex? replace their text with text thats not quirked
 		
 		/*
 		
@@ -221,43 +256,7 @@ module.exports = {
 		
 		dancestors can wait fuck em
 		
-		
 		*/
 		
-		
-		
-		
-		
-		/*
-        // regex
-		// I: looking for john colour and "gt/john" and the text that follows
-		// I: we might be able to capture #0715cd and reuse that
-        const searchRegex = /<span style="color: #0715cd">(?:\w{2,4}): (.*?)<\/span>/ig;
-        let searchMatch;
-		
-		// I: loop over all homestuck pageString
-		// I: idk man it works
-        // this might be really inefficient, but it only runs once each reload
-        for (let i = 1926; i < 9999; i++) {
-            const pageString = `00${i}`;
-
-            // if the page exists (prevents certain errors)
-            if (archive.mspa.story[pageString]) {
-                // check if john speaks
-                if (archive.mspa.story[pageString].content.includes('#0715cd')) {
-                    const content = archive.mspa.story[pageString].content;
-
-                    // store all of john's lines
-                    const johnLines = [];
-                    while(searchMatch = searchRegex.exec(content)) johnLines.push(searchMatch[1]);
-
-                    // choose a random one
-                    const selectedText = johnLines[Math.floor(Math.random() * johnLines.length)];
-                    
-                    // replace chosen line
-                    archive.mspa.story[pageString].content = content.replace(selectedText, 'i have an erection.');
-                }
-            }
-        }*/
     },
 }
